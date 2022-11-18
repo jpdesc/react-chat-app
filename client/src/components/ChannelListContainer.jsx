@@ -21,6 +21,12 @@ const SideBar = () => (
     </div>
 );
 
+const CompanyHeader = () => (
+    <div className="channel-list__header">
+        <p className="channel-list__header__text">Medical Pager</p>
+    </div>
+)
+
 const ChannelListContainer = () => {
   return (
       <>
@@ -30,7 +36,7 @@ const ChannelListContainer = () => {
               <ChannelSearch />
               <ChannelList
                   filters={{}}
-                  channelRenderFilterFn={() => { }}
+                  channelRenderFilterFn={() => {}}
                   List={(listProps) => (
                       <TeamChannelList
                           {...listProps}
@@ -44,17 +50,29 @@ const ChannelListContainer = () => {
                       />
                   )}
               />
+              <ChannelList
+                  filters={{}}
+                  channelRenderFilterFn={() => { }}
+                  List={(listProps) => (
+                      <TeamChannelList
+                          {...listProps}
+                          type='messaging'
+                      />
+                  )}
+                  Preview={(previewProps) => (
+                      <TeamChannelPreview
+                          {...previewProps}
+                          type='messaging'
+                      />
+                  )}
+              />
 
           </div>
       </>
   )
 }
 
-const CompanyHeader = () => (
-    <div className="channel-list__header">
-        <p className="channel-list__header__text">Medical Pager</p>
-    </div>
-)
+
 
 
 
