@@ -37,7 +37,7 @@ const customChannelTeamMessagingFilter = (channels) => {
     return channels.filter((channel) => channel.type === 'messaging');
 }
 
-const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
     const { client } = useChatContext();
 
 
@@ -71,12 +71,16 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                         isCreating={isCreating}
                         setIsCreating={setIsCreating}
                         setCreateType={setCreateType}
-                        setIsEditing={setIsEditing}
+                          setIsEditing={setIsEditing}
+                          setToggleContainer={setToggleContainer}
                       />
                   )}
                   Preview={(previewProps) => (
                       <TeamChannelPreview
                           {...previewProps}
+                          setToggleContainer={setToggleContainer}
+                          setIsCreating={setIsCreating}
+                          setIsEditing={setIsEditing}
                           type='team'
                       />
                   )}
@@ -92,11 +96,15 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                           setIsCreating={setIsCreating}
                           setCreateType={setCreateType}
                           setIsEditing={setIsEditing}
+                          setToggleContainer={setToggleContainer}
                       />
                   )}
                   Preview={(previewProps) => (
                       <TeamChannelPreview
                           {...previewProps}
+                          setToggleContainer={setToggleContainer}
+                          setIsCreating={setIsCreating}
+                          setIsEditing={setIsEditing}
                           type='messaging'
                       />
                   )}
