@@ -10,7 +10,7 @@ const ListContainer = ({ children }) => {
                 <p>
                 User
                 </p>
-                <p>Container</p>
+                <p>Invite</p>
             </div>
             {children}
         </div>
@@ -22,7 +22,7 @@ const UserItem = ({ user, setSelectedUsers }) => {
 
     const handleSelect = () => {
         if (selected) {
-            setSelectedUsers((prevUsers) => prevUser === user.id)
+            setSelectedUsers((prevUsers) => prevUsers === user.id)
         } else {
             setSelectedUsers((prevUsers) => [...prevUsers, user.id])
         }
