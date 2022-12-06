@@ -51,7 +51,7 @@ const ChannelSearch = ({ setToggleContainer }) => {
 
     const setChannel = (channel) => {
         setQuery('');
-        setChannel(channel);
+        setActiveChannel(channel);
     }
 
   return (
