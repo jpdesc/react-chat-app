@@ -11,33 +11,32 @@ import './App.css';
 const cookies = new Cookies();
 
 const apiKey = 'u4877raa7y84';
+const authToken = cookies.get("token");
 
 const client = StreamChat.getInstance(apiKey);
 
-const authToken = cookies.get('token');
-
-if (authToken) {
+if(authToken) {
     client.connectUser({
+        id: cookies.get('userId'),
         name: cookies.get('username'),
         fullName: cookies.get('fullName'),
-        id: cookies.get('userId'),
-        phoneNumber: cookies.get('phoneNumber'),
         image: cookies.get('avatarURL'),
         hashedPassword: cookies.get('hashedPassword'),
+        phoneNumber: cookies.get('phoneNumber'),
     }, authToken)
 }
 
 
 const App = () => {
-    const [ createType, setCreateType ] = useState('');
-    const [ isCreating, setIsCreating ] = useState(false);
+    const [createType, setCreateType] = useState('');
+    const [isCreating, setIsCreating] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
 
-    if (!authToken) return <Auth/>
+    if(!authToken) return <Auth />
 
     return (
         <div className="app__wrapper">
-            <Chat client={client} theme='team light'>
+            <Chat client={client} theme="team light">
                 <ChannelListContainer
                     isCreating={isCreating}
                     setIsCreating={setIsCreating}
