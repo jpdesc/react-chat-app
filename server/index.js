@@ -44,7 +44,7 @@ app.post('/', (req, res) => {
 
     return res.status(200).send('Not a new message request');
 });
-
+    //
 app.use('/auth', authRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
